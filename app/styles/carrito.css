@@ -1,0 +1,90 @@
+.contenido{
+    display: grid;
+    align-items: flex-start; /*para q la seccion de "Resumen del Pedido" tome unicamente el espacio q necesita*/
+    gap: 5rem;
+
+}
+@media(min-width: 768px){
+    .contenido{
+        grid-template-columns: 3fr 2fr; /*3fr para el carrito y 2fr para el resumen*/
+
+    }
+}
+
+.carrito{
+    padding: 3rem;
+}
+
+.resumen{
+    background-color: #F9FAFB;
+    padding: 3rem;
+    border-radius: 1rem;
+    position: sticky; /*para q "Resumen del Pedido" quede fijo, 
+    y no se pierda una vez que vamos bajando en el listado de productos*/
+    top: 3rem;
+}
+
+/*Queremos que en un dispositivo grande, los articulos se muestren
+del lado izq y el resumen del lado derecho
+Pero en un dispositivo mas pequeño se coloca articulos arriba
+y resumen del pedido abajo*/
+
+.producto{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 3rem 0;
+    border-bottom: 1px solid #cfcfcf; /*linea de separacion entre cada producto listado*/
+    position: relative;
+}
+
+.producto:last-of-type{ /*seleccionamos el ultimo producto del listado*/
+    border-bottom: none;
+}
+
+.select{
+    all: unset; /*elimina los estilos por default*/
+    border: 1px solid #cfcfcf;
+    text-align: center;
+    width: 100%;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+.producto p{
+    margin: 0 0 1rem 0;
+}
+
+.producto span{
+    font-weight: 700;
+    font-size: 2.6rem;
+}
+
+.nombre{
+    font-weight: 700;
+    font-size: 3.2rem;
+
+}
+
+.producto .precio{
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 2rem;
+
+}
+
+.subtotal{
+    font-size:2.2rem; 
+}
+
+.btn-eliminar{
+    all: unset;
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+}
+
+.btn-eliminar:hover{
+    cursor: pointer;
+}

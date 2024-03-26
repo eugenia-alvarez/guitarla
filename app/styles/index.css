@@ -1,0 +1,193 @@
+:root {
+    --primary: #e99401;
+    --black: #262626;
+    --white: #FFF;
+    --fuente-principal: 'Outfit', sans-serif;
+  }
+  html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    font-size: 2rem;
+    font-family: var(--fuente-principal);
+    line-height: 1.5;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  [class*="contenedor"], 
+  main {
+    width: min(95%, 120rem);
+    margin: 3rem auto;
+  }
+  [class*="heading"] {
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 900;
+    color: var(--primary);
+    margin: 5rem 0;
+  }
+
+  /**HEADER*/
+  .header{
+    background-image: linear-gradient(to right, rgb(0 0 0 / .8), rgb(0 0 0 / .7)), url(/img/header.jpg);
+    padding: 6rem 0;
+    background-size: cover; /*para q la img tome todo el ancho de pantalla y se adapte a todos los tamaños*/
+    background-position: center center; /*posicionamos la img al center para q no se pierda la img cuando le damos el tamaño al logo*/
+  }
+
+  .header .logo{
+    width: 25rem;
+  }
+
+  .barra{
+   /*en el tamaño mas pequeño los enlaces y el logo se muestran de arriba hacia abajo*/ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+   /*en un tamaño mayor el logo se muestra a la izq y los enlaces a la derecha*/
+  @media(min-width: 768px){
+    .barra{
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .header .navegacion{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 5rem;
+  }
+
+  @media(min-width: 768px){
+    .header .navegacion{
+      margin-top: 0; /*Eliminamos el margin top en disp mayores para que este alineado horizontal y verticalmente*/
+    }
+  }
+
+  .header .navegacion a{
+    color: var(--white) ;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1.4rem;
+    padding: .5rem;
+    transition-property: background-color ;
+    transition-duration: 300ms;
+  }
+
+  .header .navegacion img{
+    width: 3rem;
+  }
+
+  .header .navegacion a:hover,
+  .header .active{ /*.header .active para que solo resalte los enlaces del header y no los del footer*/
+    background-color: var(--primary);
+    font-size: 2rem;
+
+  }
+
+ /*FOOTER*/
+ .footer{
+   background-color: var(--black);
+   padding: 5rem 0;
+   margin-top: 5rem;
+ }
+
+ /*Para q la nav este del lado izq y el texto del lado derecho*/
+ @media(min-width: 768px){
+  .footer .contenido{
+    display: flex;
+    justify-content: space-between;
+  }
+ }
+
+ .footer .navegacion{
+  display: flex;
+  flex-direction: column; /*los enlaces se muestran de arriba hacia abajo en disp menores*/
+  align-items: center;
+  gap: 2rem; 
+ }
+
+ /*en disp mayores los enlaces se muesran a la izq*/
+ @media(min-width: 768px){
+  .footer .navegacion{
+   flex-direction: row;
+  }
+ }
+
+ .footer .navegacion a,
+ .footer .copyright{
+  color: var(--white);
+  text-decoration: none;
+  font-size: 2.2rem;
+  font-weight: 700;
+ }
+ 
+ .footer .navegacion a:last-of-type{ /*Seleccionamos el ultimo enlace, que es el del carrito y lo eliminamos del footer*/
+  display: none;
+ }
+
+ .footer .copyright{
+  text-align: center;
+
+ }
+
+ /*Manejo de Errores*/
+ .error {
+  font-size: 2.4rem;
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+
+ }
+
+ .error-boton{
+  font-size: 2.4rem;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 1rem;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: background-color;
+  transition-duration: 300ms;
+ }
+ .error-boton:hover{
+  background-color: var(--black);
+ }
+
+
+ /*Enlaces Guitarra.jsx y Post.jsx*/
+.post .enlace,
+.guitarra .enlace{
+  margin-top: 2rem;
+  display: block;
+  background-color: var(--black);
+  color: var(--white);
+  text-decoration: none;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.4rem; /*tamaño del texto*/
+  font-weight: 700;
+  transition-property: background-color;
+  transition-duration: 300ms;
+}
+
+.post .enlace:hover,
+.guitarra .enlace:hover{
+  background-color: var(--primary);
+}
+

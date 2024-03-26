@@ -1,0 +1,95 @@
+.guitarras-grid{
+    display: grid;
+    gap: 4rem;
+}
+
+@media(min-width: 768px){ /*En el tamaño de TABLET vamos a tener dos columnas*/
+    .guitarras-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(min-width: 768px){ /*En el tamaño de COMPUTADORA vamos a tener tres columnas*/
+    .guitarras-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.guitarra{ /*Este codigo coloca la imagen del lado izquierdo y el contenido del lado derecho*/
+    display: grid;
+    grid-template-columns: 2fr 3fr ; 
+    gap: 1rem;
+    align-items: center; /*queda centrado verticalmente*/
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+.guitarra .contenido{
+    padding: 1rem;
+}
+
+.guitarra .contenido h3{
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: var(--primary );
+}
+
+.guitarra .descripcion{
+/*Algunas veces nos puede pasar que tenemos diferentes cantidades de texto,
+pero queremos que todas tengan el mismo tamaño, 
+este codigo nos sirve para eso*/ 
+    display: -webkit-box;
+    -webkit-box-orient: vertical ;/*cambiamos la orientacion*/
+    -webkit-line-clamp: 4; /*corta y mueve el contenido hacia arriba*/
+    overflow: hidden; /*solamente deja 4 lineas visibles, que son las que indicamos arriba, y lo demas lo oculta*/
+    font-size: 1.8rem;
+}
+
+.guitarra .precio{
+   color: var(--primary);
+   font-size: 3rem;
+   margin: 0;
+   font-weight: 700;
+}
+
+/*El codigo de estilos de los enlaces lo indicamos en el index.css, ya que lo utilizamos en el componente de blog.jsx
+y en el componente de guitarra.jsx
+de esta manera, reutilizamos codigo y no lo repetimos en dos hojas de estilo diferentes*/
+
+
+/*Añadir al carrito*/
+.formulario{
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario label{
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.formulario select{
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid var(--black);
+    border-radius: 1rem;
+
+}
+
+.formulario input[type="submit"]{
+    margin-top: 3rem;
+    padding: 1.4rem;
+    background-color: var(--black);
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: 300ms;
+}
+
+.formulario input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: var(--primary);
+
+}
